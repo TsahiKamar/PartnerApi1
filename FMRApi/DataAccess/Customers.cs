@@ -1,4 +1,5 @@
-﻿using FMRApi.Models;
+﻿using FMRApi.DAL;
+using FMRApi.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,8 +19,13 @@ namespace FMRApi.DataAccess
         [StringLength(100)]
         public string fullName { get; set; }
 
-        public List<Address> addresses { get; set; } //virtual
+        //[Column("addresses")]
+        public List<Address> addresses { get; set; }
+
+        //[Column("products")]
         public List<Product> products { get; set; }
+
+        //[Column("phones")]
         public List<Phone> phones { get; set; }
 
 

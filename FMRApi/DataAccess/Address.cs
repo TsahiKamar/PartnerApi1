@@ -3,9 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FMRApi.Models
 {
-    public class Address //: Base
+    public class Address 
     {
-
         [Column("customerId")]
         [Key]
         [Required]

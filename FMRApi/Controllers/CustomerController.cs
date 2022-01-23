@@ -1,3 +1,4 @@
+using FMRApi.DAL;
 using FMRApi.DataAccess;
 using FMRApi.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -34,18 +35,20 @@ namespace FMRApi.Controllers
 
         private List<Customers> _CUSTOMERS = new List<Customers>
         {
-            new Customers { customerId = "1",fullName = "Omri",phones = new List<Phone>() {new Phone {customerId = "1",type = "נייד", phoneNumber = "0523610026" } },products = new List<Product>() {new Product { customerId = "1",productId = 122,name = "Gemel1",description="Gemel 40+", interestPercents=5,deposit=20000,date=new DateTime() } },addresses = new List<Address>() {new Address { customerId = "1",type = "בית",city = "Jerusalem",street="Yaffo",houseNum = 100,pob= 32564,zip=11111} } },
+            new Customers { customerId = "1",fullName = "Omri",phones = new List<Phone>() {new Phone {customerId = "1",type = "נייד", phoneNumber = "0523610026" }} ,products = new List<Product>() {new Product { customerId = "1",productId = 122,name = "Gemel1",description="Gemel 40+", interestPercents=5,deposit=20000,date=new DateTime() } },addresses = new List<Address>() {new Address { customerId = "1",type = "בית",city = "Jerusalem",street="Yaffo",houseNum = 100,pob= 32564,zip=11111} } },
             new Customers { customerId = "2",fullName = "bela",phones = null,products = null,addresses = null }
         };
 
         private List<Products> _PRODUCTS = new List<Products>
         {
-            new Products {  customerId = "1",productId = 1,name="PRODCT NAME",description="desc",interestPercents=2, deposit=3000, date = new DateTime() }
+            new Products {  customerId = "1",productId = 1,name="PRODCT 1",description="desc",interestPercents=2, deposit=3000, date = new DateTime() },
+            new Products {  customerId = "2",productId = 2,name="PRODCT 2",description="desc",interestPercents=3, deposit=5000, date = new DateTime() },
+
         };
 
 
         [HttpGet("customers")] 
-        public ActionResult<IEnumerable<Customers>> GetCustomers() // 
+        public ActionResult<IEnumerable<Customers>> GetCustomers() 
         {
 
             IEnumerable<Customers> customers  = Enumerable.Empty<Customers>(); 
@@ -64,14 +67,14 @@ namespace FMRApi.Controllers
         }
 
         [HttpGet("products")]
-        public ActionResult<IEnumerable<Products>> GetProducts()
+        public ActionResult<IEnumerable<Products>> GetProducts(string? customerId)
         {
 
-            IEnumerable<Products> products = Enumerable.Empty<Products>(); ;
+            IEnumerable<Products> products = Enumerable.Empty<Products>();
 
             try
             {
-                 products = _context.Products;
+                 products = !string.IsNullOrEmpty(customerId) && customerId != "undefined" ? _context.Products.Where(x=> x.customerId == customerId) : _context.Products;
             }
             catch (Exception ex)
             {
@@ -84,14 +87,19 @@ namespace FMRApi.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet("GetCustomerDetails")]
         public IActionResult GetCustomerDetails(string id)
         {
-            dynamic customer;           
+            dynamic customer;     
+            
             try 
             { 
-                customer = _context.Customers.Where(x => x.id == id).FirstOrDefault();
+                //tbc
+                customer = _context.Customers.Where(x => x.id == id).FirstOrDefault(); //|| x.products.Find(z => z.customerId == x.customerId
+
                 if (customer == null) return NotFound();
+
+                //var products = _context.Products.Where(x => x.id == id).FirstOrDefault();
             }
             catch (Exception ex)
             {

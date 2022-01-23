@@ -1,9 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-//namespace FMRApi.DataAccess
-//{
-
     public class Base
     {
         [Column("id")]
@@ -13,7 +10,6 @@ using System.ComponentModel.DataAnnotations.Schema;
         [Required]
         [StringLength(100)]
         public string id { get; set; }
-
 
         [Column("updateDate")]
         [Required]
