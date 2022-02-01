@@ -1,13 +1,11 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer.Infrastructure.Internal;
-using System.Collections.Generic;
 
 namespace LEUMITApi.DataAccess
 {
     public class AppDbContext : DbContext
     {
-          public DbSet<Employees> Employees { get; set; }
+        public DbSet<Employees> Employees { get; set; }
        
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
