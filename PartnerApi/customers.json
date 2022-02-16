@@ -1,0 +1,114 @@
+[
+  {
+    "customerId": "029505674",
+    "firstName": "Tsahi",
+    "lastName": "Kamar",
+    "address": {
+      "city": "Jerusalem",
+      "street": "Jaffa",
+      "houseNum": 100,
+      "zipCode": 1111111
+    },
+    "contracts": [
+      {
+        "memberNumber": "1",
+        "type": "Private",
+        "firstName": "Dan",
+        "lastName": "Ronen",
+        "packages": [
+          {
+            "name": "package1",
+            "type": "LocalCalls",
+            "quantity": 10,
+            "utilization": 100
+          },
+          {
+            "name": "package2",
+            "type": "Browsing",
+            "quantity": 100,
+            "utilization": 200
+          }
+        ]
+      },
+      {
+        "memberNumber": "2",
+        "type": "Private",
+        "firstName": "Eran",
+        "lastName": "Sason",
+        "packages": [
+          {
+            "name": "package1",
+            "type": "LocalCalls",
+            "quantity": 1,
+            "utilization": 100
+          },
+          {
+            "name": "package3",
+            "type": "Browsing",
+            "quantity": 500,
+            "utilization": 200
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "customerId": "025672213",
+    "firstName": "Avrasha",
+    "lastName": "Zaltzman",
+    "address": {
+      "city": "Haifa",
+      "street": "Jaffa",
+      "houseNum": 2,
+      "zipCode": 3333333
+    },
+    "contracts": [
+      {
+        "memberNumber": "1",
+        "type": "Bussiness",
+        "firstName": "Avrasha",
+        "lastName": "Zaltzman",
+        "packages": [
+          {
+            "name": "package1",
+            "type": "LocalCalls",
+            "quantity": 11,
+            "utilization": 100
+          },
+          {
+            "name": "package5",
+            "type": "Browsing",
+            "quantity": 100,
+            "utilization": 200
+          }
+        ]
+      },
+      {
+        "memberNumber": "2",
+        "type": "Private",
+        "firstName": "Eran",
+        "lastName": "Sason",
+        "packages": [
+          {
+            "name": "package1",
+            "type": "LocalCalls",
+            "quantity": 1,
+            "utilization": 100
+          },
+          {
+            "name": "package3",
+            "type": "Browsing",
+            "quantity": 500,
+            "utilization": 200
+          }
+        ]
+      }
+    ]
+  }
+
+]
+
+
+
+
+
